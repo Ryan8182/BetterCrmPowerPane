@@ -3,10 +3,10 @@ const build = (target, version) => {
 
     // Common properties
     manifest.manifest_version = 3; // Required for MV3
-    manifest.name = "Better Crm Power Pane";
-    manifest.short_name = "Better Crm Power Pane";
+    manifest.name = "CRM Power Pane Returns";
+    manifest.short_name = "CRM Power Pane Returns";
     manifest.version = version;
-    manifest.description = "Better Crm Power Pane is a helper tool designed to integrate with Dynamics CRM/365 application and allow you to manipulate forms.";
+    manifest.description = "CRM Power Pane Returns is a helper tool designed to integrate with Dynamics CRM/365 application and allow you to manipulate forms.";
     manifest.icons = {
         32: "img/icon-32.png",
         48: "img/icon-48.png",
@@ -18,7 +18,34 @@ const build = (target, version) => {
     manifest.content_scripts = [
         {
             run_at: "document_end",
-            matches: ["<all_urls>"],
+            matches: [
+                "*://*.crm.microsoftdynamics.us/*",
+                "*://*.crm.microsoftdynamics.de/*",
+                "*://*.dynamics.microsoft.com/*",
+                "*://*.crm.appsplatform.us/*",
+                "*://*.crm2.dynamics.com*",
+                "*://*.crm3.dynamics.com/*",
+                "*://*.crm4.dynamics.com/*",
+                "*://*.crm5.dynamics.com/*",
+                "*://*.crm6.dynamics.com/*",
+                "*://*.crm7.dynamics.com/*",
+                "*://*.crm8.dynamics.com/*",
+                "*://*.crm9.dynamics.com/*",
+                "*://*.crm10.dynamics.com/*",
+                "*://*.crm11.dynamics.com/*",
+                "*://*.crm12.dynamics.com/*",
+                "*://*.crm13.dynamics.com/*",
+                "*://*.crm14.dynamics.com/*",
+                "*://*.crm15.dynamics.com/*",
+                "*://*.crm16.dynamics.com/*",
+                "*://*.crm17.dynamics.com/*",
+                "*://*.crm18.dynamics.com/*",
+                "*://*.crm19.dynamics.com/*",
+                "*://*.crm20.dynamics.com/*",
+                "*://*.crm21.dynamics.com/*",
+                "*://*.crm.dynamics.com/*"
+
+            ],
             js: ["js/inject.js"],
             css: ["ui/css/pane.css"]
         }
@@ -33,13 +60,67 @@ const build = (target, version) => {
     ];
 
     // Host Permissions (required for HTTP/HTTPS URLs)
-    manifest.host_permissions = ["<all_urls>", "http://*/*", "https://*/*"];
+    manifest.host_permissions = [
+        "*://*.crm.microsoftdynamics.us/*",
+        "*://*.crm.microsoftdynamics.de/*",
+        "*://*.dynamics.microsoft.com/*",
+        "*://*.crm.appsplatform.us/*",
+        "*://*.crm2.dynamics.com*",
+            "*://*.crm3.dynamics.com/*",
+            "*://*.crm4.dynamics.com/*",
+            "*://*.crm5.dynamics.com/*",
+            "*://*.crm6.dynamics.com/*",
+            "*://*.crm7.dynamics.com/*",
+            "*://*.crm8.dynamics.com/*",
+            "*://*.crm9.dynamics.com/*",
+            "*://*.crm10.dynamics.com/*",
+            "*://*.crm11.dynamics.com/*",
+            "*://*.crm12.dynamics.com/*",
+            "*://*.crm13.dynamics.com/*",
+            "*://*.crm14.dynamics.com/*",
+            "*://*.crm15.dynamics.com/*",
+            "*://*.crm16.dynamics.com/*",
+            "*://*.crm17.dynamics.com/*",
+            "*://*.crm18.dynamics.com/*",
+            "*://*.crm19.dynamics.com/*",
+            "*://*.crm20.dynamics.com/*",
+            "*://*.crm21.dynamics.com/*",
+            "*://*.crm.dynamics.com/*"
+
+    ];
 
     // Web Accessible Resources
     manifest.web_accessible_resources = [
         {
             resources: ["ui/*", "img/*"],
-            matches: ["<all_urls>"]
+            matches: [
+                "*://*.crm.microsoftdynamics.us/*",
+                "*://*.crm.microsoftdynamics.de/*",
+                "*://*.dynamics.microsoft.com/*",
+                "*://*.crm.appsplatform.us/*",
+                "*://*.crm2.dynamics.com*",
+                "*://*.crm3.dynamics.com/*",
+                "*://*.crm4.dynamics.com/*",
+                "*://*.crm5.dynamics.com/*",
+                "*://*.crm6.dynamics.com/*",
+                "*://*.crm7.dynamics.com/*",
+                "*://*.crm8.dynamics.com/*",
+                "*://*.crm9.dynamics.com/*",
+                "*://*.crm10.dynamics.com/*",
+                "*://*.crm11.dynamics.com/*",
+                "*://*.crm12.dynamics.com/*",
+                "*://*.crm13.dynamics.com/*",
+                "*://*.crm14.dynamics.com/*",
+                "*://*.crm15.dynamics.com/*",
+                "*://*.crm16.dynamics.com/*",
+                "*://*.crm17.dynamics.com/*",
+                "*://*.crm18.dynamics.com/*",
+                "*://*.crm19.dynamics.com/*",
+                "*://*.crm20.dynamics.com/*",
+                "*://*.crm21.dynamics.com/*",
+                "*://*.crm.dynamics.com/*"
+
+            ]
         }
     ];
 
@@ -51,8 +132,10 @@ const build = (target, version) => {
 
     // Browser Action (renamed to `action` in MV3)
     manifest.action = {
-        default_title: "Better Crm Power Pane",
-        default_icon: "img/icon-48.png"
+        default_title: "CRM Power Pane Returns",
+        default_icon: {
+            "48": "img/icon-48.png"
+        }
     };
 
     // Options Page
@@ -67,7 +150,7 @@ const build = (target, version) => {
 
     // Edge-specific properties
     if (target === "edge") {
-        manifest.author = "Oguzhan Can and Onur Menal";
+        manifest.author = "Ryan Rettinger, Oguzhan Can, Onur Menal";
     }
 
     // Browser-specific adjustments
